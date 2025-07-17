@@ -15,6 +15,9 @@ class Product(BaseModel):
     price:float
     quantity:int
     status:int
+
+
+
 #conexion a BBDD usando el fichero .env - libreria .env de python
 
 #creamos una funcion asincrona
