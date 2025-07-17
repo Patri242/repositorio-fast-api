@@ -1,13 +1,15 @@
 from fastapi import APIRouter
 from controllers import product_controller
 from models.product_model import Product, ProductCreate
+from fastapi import APIRouter, Depends
+from core.dependencies import get_current_user
 
 router = APIRouter()
 
 
 #http://localhost:8000/products/
 @router.get('/', status_code=200)
-async def get_all():
+async def get_all(user=Depends(get_current_user)):
     return await product_controller.get_products_list()
 
 #realizar todo el flujo para obtener un producto por id

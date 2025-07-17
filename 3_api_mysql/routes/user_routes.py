@@ -16,9 +16,6 @@ async def get_user_id(id_user:int):
 async def update_user(id_user:int, user:User):
     return await user_controller.actualizar_usuario(id_user,user)
 
-@router.post('/', status_code=201)
-async def register_user(user:UserCreate):
-    return await user_controller.registrar_usuario(user)
 
 @router.delete('/{id_user}', status_code=200)
 async def delete_user(id_user:int):

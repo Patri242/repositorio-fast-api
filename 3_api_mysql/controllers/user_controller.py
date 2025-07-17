@@ -56,30 +56,6 @@ async def actualizar_usuario(id_user:int, user: User):
     finally:
         conn.close()
 
-
-async def registrar_usuario(user:UserCreate):
-    try:
-        conn=await get_connection
-        async with conn.cursor(aiomysql.DictCursor) as cursor:
-            await cursor.execute("INSERT INTO upgrade_shop.users(name, age, surname, email, password, rol) VALUES (%s, %s, %s, %s, %s, %s)", (
-                user.name,
-                user.age,
-                user.surname,
-                user.email,
-                user.password,
-                user.rol
-            ))
-            await conn.commit()
-            nuevo_id=cursor.lastrowid
-            user=await obtener_usuario(nuevo_id)
-            return user
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
-    finally:
-        conn.close()
-
-
-
 async def borrar_usuario(id_user):
         try:
             conn=await get_connection()
