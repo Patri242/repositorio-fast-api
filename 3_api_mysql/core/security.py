@@ -52,12 +52,12 @@ def create_token(data:dict):
 
 #print(create_token({'id':2, 'rol':'admin'}))
 
+#funcion para decodificaar un token´
 def decode_token(token:str):
-    #decodificar el token para recibir los datos id, rol del usuario logado. Parque de atracciones ejemplo
-    #usamos la libreria JWT
+    #decodificar el token pra recibir lso datos del usuario.son id. rol. fecha de expiracion. Para ello usamos la libreria JWT
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM) #siempre se llama payload. pasame el payload del token. pasame el token decodificado
+        payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
         return payload
     except JWTError:
         return None
-
+    

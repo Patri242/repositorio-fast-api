@@ -5,7 +5,7 @@ from routes import product_routes, user_routes, auth_routes
 app=FastAPI()
 app.include_router(product_routes.router,
                    prefix="/products",
-                   tags=["Products"])
+                   tags=["Products"]) # , dependencies= si todas son privadas.
 
 app.include_router(user_routes.router,
                    prefix="/users",
