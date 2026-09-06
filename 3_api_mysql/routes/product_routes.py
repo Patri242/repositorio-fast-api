@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends
 from controllers import product_controller
 from models.product_model import Product, ProductCreate
-from fastapi import APIRouter
 from core.dependencies import get_current_user
 
 router = APIRouter()
